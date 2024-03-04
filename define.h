@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #endif
 
 #ifdef _WIN32
@@ -40,6 +41,8 @@ struct song{
 	char title[MAX_SIZE_TITLE];// Titre du morceau
 	struct tick tickTab[MAX_NUMBER_TICKS];// Tableau de ticks
 }s_song;
+
+void string_tolower(char * song_filename);
 #endif
 
 

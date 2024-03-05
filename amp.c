@@ -28,7 +28,7 @@ void readAMP(FILE* pf, char * song_filename){
     fgets(song_filename, MAX_SONGNAME_SIZE, pf);
     string_tolower(song_filename);
     string_replace(song_filename);
-    printf("%s\n", song_filename);
+    printf("%s\n",song_filename);
 }
 
 void closeAMP(FILE* pf){

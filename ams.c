@@ -10,7 +10,7 @@ s_song readAMS(char* fileName){
 	
 	s_song mySong;
 
-	FILE *songFile;
+	FILE * songFile;
 	songFile=fopen(fileName,"r");
 	if ( songFile == NULL ) {
 		printf( "Cannot open file\n");
@@ -27,14 +27,18 @@ s_song readAMS(char* fileName){
 		return mySong;
 	}
 	char line[MAX_SIZE_LINE]; // buffer de lecture
+	char titre[MAX_SONGNAME_SIZE];
+	int tempo;
 
-	fgets(mySong.title, MAX_SIZE_TITLE, songFile);
+	fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);
+	char new_title[MAX_SONGNAME_SIZE];
+	for (int i = 0; i < strlen(mySong.title)-2; ++i) { // J'ai 2 caractere à la fin dérageant pour la création de trame
+		new_title[i] = mySong.title[i];
+	}
+	strcpy(mySong.title,new_title);
 
 	fgets(line, MAX_SIZE_LINE, songFile);
-	mySong.tpm=atoi(line);
-
-	printf("titre : %s",mySong.title);
-	printf("%d\n",mySong.tpm);
+	mySong.tpm=atoi(line)*2;
 
 	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
 	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
@@ -47,22 +51,23 @@ s_song readAMS(char* fileName){
 	while ( ! feof( songFile ) ) {
 
 		fgets(line, MAX_SIZE_LINE, songFile);
-		int compt_colonne=0;
-		int compt_note=0;
+		int compt_colonne = 0;
+		int compt_note = 0;
 
-		token=strtok(line,delim);
 
-		while (token!=NULL) {
+		token = strtok(line, delim);
 
-			if (token[0]=='^' || token[0]=='x'){
-				mySong.tickTab[compt_ligne].note[compt_note]=compt_colonne;
+		while (token != NULL) {
+
+			if (token[0] == '^' || token[0] == 'x') {
+				mySong.tickTab[compt_ligne].note[compt_note] = compt_colonne;
 				compt_note++;
 			}
-			if (token[0]=='^'){
-				mySong.tickTab[compt_ligne].accent=1;
+			if (token[0] == '^') {
+				mySong.tickTab[compt_ligne].accent = 1;
 			}
 
-			token=strtok(NULL,delim);
+			token = strtok(NULL, delim);
 			compt_colonne++;
 		}
 		compt_ligne++;
@@ -71,6 +76,8 @@ s_song readAMS(char* fileName){
 
 	repr_song(mySong);
 	return mySong;
+
+
 }
 
 

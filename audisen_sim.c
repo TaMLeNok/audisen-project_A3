@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "amp.h"
 #include "ams.h"
+#include "frame.h"
 
 int main(){
     printf("Demarrage du projet AUDISEN\n");
@@ -15,7 +16,16 @@ int main(){
     readAMP(playlist,title);
     closeAMP(playlist);
      */
-    readAMS("bohemian_rhapsody.ams");
+    s_song OE;
+    OE = readAMS("bohemian_rhapsody.ams");
+    char frame[INIT_FRAME_MAX_SIZE];
+    char frame2[INIT_FRAME_MAX_SIZE];
+    createInitFrame(OE,frame);
+    printf("%s",frame);
+    createTickFrame(OE.tickTab[1],frame2);
+    printf("%s",frame2);
+
+
 
 
 

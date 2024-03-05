@@ -25,3 +25,16 @@ void string_replace(char * song_filename){
     }
     strcpy(song_filename,new_song_filename);
 }
+
+void repr_song(s_song song){
+    printf("titre : %s\n",song.title);
+    printf("tpm : %d\n",song.tpm);
+    printf("nTicks : %d\n",song.nTicks);
+    printf("ticks tab : ");
+    for(int i=0;i<MAX_NUMBER_TICKS;i++){
+        for(int j=0;j<4;j++){
+            printf("%d", song.tickTab[i].note[j]);
+        }
+        printf("\n");
+    }
+}

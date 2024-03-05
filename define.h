@@ -42,6 +42,7 @@ struct song{
 	struct tick tickTab[MAX_NUMBER_TICKS];// Tableau de ticks
 }s_song;
 
+void repr_song(s_song song);
 void string_tolower(char * song_filename);
 void string_replace(char * song_filename);
 #endif

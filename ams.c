@@ -10,6 +10,42 @@ s_song readAMS(char* fileName){
 	
 	s_song mySong;
 
+	FILE *songFile;
+	songFile=fopen(fileName,"r");
+	if ( songFile == NULL ) {
+		printf( stderr, "Cannot open file\n");
+		mySong.nTicks=0;
+		mySong.tpm=0;
+		for (int i=0;i<MAX_NUMBER_TICKS;i++){
+			//complete
+		}
+		mySong.title[0]='\0';
+		return mySong;
+	}
+	char line[MAX_SIZE_LINE]; // buffer de lecture
+	char titre[MAX_SONGNAME_SIZE];
+	int tempo;
+
+	fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);
+
+	fgets(line, MAX_SIZE_LINE, songFile);
+	mySong.tpm=atoi(line);
+
+	printf("%s",mySong.title);
+	printf("%d",mySong.tpm);
+
+	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
+	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
+	int compt_ligne=0;
+	int compt_note=0;
+
+	while ( ! feof( songFile ) ) {
+
+		fgets(line, MAX_SIZE_LINE, songFile);
+		printf("%s", line);
+	}
+
+
 	return mySong;
 
 

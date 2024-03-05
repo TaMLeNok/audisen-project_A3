@@ -12,6 +12,7 @@
 
 
 void createInitFrame(s_song mySong, char* frame){
+
     int checksum;
     sprintf(frame,"#%s,%d,%d*",mySong.title,mySong.tpm,mySong.nTicks);
     checksum = calculate_checksum(frame + 1); // Commence le checksum après le #

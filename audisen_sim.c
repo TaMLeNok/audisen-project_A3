@@ -26,7 +26,7 @@ int main(){
     createTickFrame(OE.tickTab[0],frame2);
     printf("%s",frame2);
 
-    testFrame();
+    testReadAMS();
 
 
 

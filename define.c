@@ -31,10 +31,10 @@ void repr_song(s_song song){
     printf("tpm : %d\n",song.tpm);
     printf("nTicks : %d\n",song.nTicks);
     printf("ticks tab : ");
-    for(int i=0;i<MAX_NUMBER_TICKS;i++){
+    for(int i=0;i<song.nTicks;i++){
         for(int j=0;j<4;j++){
-            printf("%d", song.tickTab[i].note[j]);
+            printf("%d | ", song.tickTab[i].note[j]);
         }
-        printf("\n");
+        printf(" accent : %d\n",song.tickTab[i].accent);
     }
 }

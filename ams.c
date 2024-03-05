@@ -27,32 +27,50 @@ s_song readAMS(char* fileName){
 		return mySong;
 	}
 	char line[MAX_SIZE_LINE]; // buffer de lecture
-	char titre[MAX_SONGNAME_SIZE];
-	int tempo;
 
-	fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);
+	fgets(mySong.title, MAX_SIZE_TITLE, songFile);
 
 	fgets(line, MAX_SIZE_LINE, songFile);
 	mySong.tpm=atoi(line);
 
-	printf("%s",mySong.title);
+	printf("titre : %s",mySong.title);
 	printf("%d\n",mySong.tpm);
 
 	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
 	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
+
 	int compt_ligne=0;
-	int compt_note=0;
+
+	char *delim ="|\n";
+	char *token;
 
 	while ( ! feof( songFile ) ) {
 
 		fgets(line, MAX_SIZE_LINE, songFile);
-		printf("%s", line);
+		int compt_colonne=0;
+		int compt_note=0;
+
+		token=strtok(line,delim);
+
+		while (token!=NULL) {
+
+			if (token[0]=='^' || token[0]=='x'){
+				mySong.tickTab[compt_ligne].note[compt_note]=compt_colonne;
+				compt_note++;
+			}
+			if (token[0]=='^'){
+				mySong.tickTab[compt_ligne].accent=1;
+			}
+
+			token=strtok(NULL,delim);
+			compt_colonne++;
+		}
+		compt_ligne++;
 	}
+	mySong.nTicks=compt_ligne;
 
-
+	repr_song(mySong);
 	return mySong;
-
-
 }
 
 

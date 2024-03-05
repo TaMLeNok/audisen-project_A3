@@ -23,7 +23,6 @@ s_song readAMS(char* fileName){
 		}
 		mySong.title[0]='\0';
 
-		repr_song(mySong);
 		return mySong;
 	}
 	char line[MAX_SIZE_LINE]; // buffer de lecture
@@ -32,10 +31,7 @@ s_song readAMS(char* fileName){
 
 	fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);
 	char new_title[MAX_SONGNAME_SIZE];
-	for (int i = 0; i < strlen(mySong.title)-2; ++i) { // J'ai 2 caractere à la fin dérageant pour la création de trame
-		new_title[i] = mySong.title[i];
-	}
-	strcpy(mySong.title,new_title);
+
 
 	fgets(line, MAX_SIZE_LINE, songFile);
 	mySong.tpm=atoi(line)*2;
@@ -73,7 +69,6 @@ s_song readAMS(char* fileName){
 	}
 	mySong.nTicks=compt_ligne;
 
-	repr_song(mySong);
 	return mySong;
 
 
@@ -81,6 +76,7 @@ s_song readAMS(char* fileName){
 
 
 void createAMS(char* txtFileName, char* amsFileName){
+
 
 
 }

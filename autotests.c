@@ -66,17 +66,18 @@ void testReadAMS(){
 	cpt=0;
 	mySong = readAMS("bohemian_rhapsody.ams");
 	pf = fopen("bohemian_rhapsody.ref","r");
-	if(pf!=NULL){
-		fgets(title,MAX_SIZE_TITLE,pf);
+
+    if(pf!=NULL){
+
+        fgets(title,MAX_SIZE_TITLE,pf);
 		title[strlen(title)-1]='\0';
 		fscanf(pf,"%d",&tpm);
 		//printf("%s %d",title,tpm);
 		if(strcmp(title,mySong.title)==0){
-			printf("OUIIIIIIII");
-			cpt++;
+            cpt++;
 		}
 		if(tpm==mySong.tpm){
-			cpt++;
+            cpt++;
 		}
 		i=0;
 
@@ -123,7 +124,7 @@ void testReadAMP(){
     	coeff[i]=1;
     }
     int testnb = 0; // numéro du test en cours;
-    char filename[100]="Playlist.amp";
+    char filename[100]="ma_playlist.amp";
     char wrongfile[100]="dtfhesjs.ams";
 
     // TEST 1 : on verifie que le pointeur est NULL si le fichier amp n'existe pas
@@ -149,9 +150,10 @@ void testReadAMP(){
     char songfilename[MAX_SIZE_TITLE];
     int songnumber = 0;
     while(!feof(pf)){ // read amp file line by line
+
         readAMP(pf, songfilename);
         nbtest ++;
-        if (!strcmp("bohemian_rhapsody.ams", songfilename) && nbtest == 2){
+        if (!strcmp("bohemian_rhapsody", songfilename) && nbtest == 2){
             mark[nbtest]=1;
             #ifdef DEBUG
             printf("test %d AMP ok\n", nbtest);

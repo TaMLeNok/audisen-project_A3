@@ -30,8 +30,7 @@ s_song readAMS(char* fileName){
 	int tempo;
 
 	fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);
-	char new_title[MAX_SONGNAME_SIZE];
-
+	mySong.title[strlen(mySong.title)-1] = '\0';
 
 	fgets(line, MAX_SIZE_LINE, songFile);
 	mySong.tpm=atoi(line)*2;

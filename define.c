@@ -10,15 +10,15 @@ void string_tolower(char * song_filename){
 void string_replace(char * song_filename){
 
     char new_song_filename[MAX_SIZE_TITLE];
-    int j=0;
+    int decalage=0;
     for(int i=0;i< strlen(song_filename); i++) {
         if (isalnum((int) song_filename[i])) {
-            new_song_filename[i - j] = song_filename[i];
+            new_song_filename[i - decalage] = song_filename[i];
         } else {
-            if (new_song_filename[i - 1 - j] != '_') {
-                new_song_filename[i - j] = '_';
+            if (new_song_filename[i - 1 - decalage] != '_') {
+                new_song_filename[i - decalage] = '_';
             }else{
-                j++;
+                decalage++;
             }
 
         }

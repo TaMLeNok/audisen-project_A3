@@ -54,7 +54,6 @@ s_song readAMS(char* fileName){
 		int compt_colonne = 0;
 		int compt_note = 0;
 
-
 		token = strtok(line, delim);
 
 		while (token != NULL) {

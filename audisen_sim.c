@@ -6,6 +6,7 @@
 #include "amp.h"
 #include "ams.h"
 #include "frame.h"
+#include "autotests.h"
 
 int main(){
     printf("Demarrage du projet AUDISEN\n");
@@ -15,7 +16,7 @@ int main(){
     playlist = initAMP("ma_playlist.amp");
     readAMP(playlist,title);
     closeAMP(playlist);
-     */
+
     s_song OE;
     OE = readAMS("bohemian_rhapsody.ams");
     char frame[INIT_FRAME_MAX_SIZE];
@@ -23,7 +24,9 @@ int main(){
     createInitFrame(OE,frame);
     printf("%s",frame);
     createTickFrame(OE.tickTab[1],frame2);
-    printf("%s",frame2);
+    printf("%s",frame2);*/
+
+    testReadAMS();
 
 
 

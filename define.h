@@ -43,6 +43,7 @@ struct song{
 }s_song;
 
 void string_tolower(char * song_filename);
+void string_replace(char * song_filename);
 #endif
 
 

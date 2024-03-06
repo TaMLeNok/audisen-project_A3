@@ -17,7 +17,7 @@ void string_replace(char *song_filename) {
     for(int i = 0; i < strlen(song_filename); i++) {
         if (song_filename[i] != '\n' && song_filename[i] != '\r') {
             if (isalpha(song_filename[i])) {
-                new_song_filename[i - decalage] = song_filename[i]; // Convertir en minuscule
+                new_song_filename[i - decalage] = song_filename[i];
             } else {
                 if (new_song_filename[i - 1 - decalage] != '_') {
                     new_song_filename[i - decalage] = '_';
@@ -53,3 +53,5 @@ int calculate_checksum(const char * content){
     }
     return checksum;
 }
+
+

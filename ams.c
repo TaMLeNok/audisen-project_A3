@@ -7,74 +7,71 @@
 
 
 s_song readAMS(char* fileName){
+	
+	s_song mySong;
 
-    s_song mySong;
+	FILE * songFile;
+	songFile=fopen(fileName,"r");
+	if ( songFile == NULL ) {
+		printf( "Cannot open file\n");
+		mySong.nTicks=0;
+		mySong.tpm=0;
+		for (int i=0;i<MAX_NUMBER_TICKS;i++){
+			for(int j=0;j<4;j++) {
+				mySong.tickTab[i].note[j] = 0;
+			}
+		}
+		mySong.title[0]='\0';
+		return mySong;
+	}
+	char line[MAX_SIZE_LINE]; // buffer de lecture
+	char titre[MAX_SONGNAME_SIZE];
+	int tempo;
 
-    FILE * songFile;
-    songFile=fopen(fileName,"r");
-    if ( songFile == NULL ) {
-        printf( "Cannot open file\n");
-        mySong.nTicks=0;
-        mySong.tpm=0;
-        for (int i=0;i<MAX_NUMBER_TICKS;i++){
-            for(int j=0;j<4;j++) {
-                mySong.tickTab[i].note[j] = 0;
-            }
-        }
-        mySong.title[0]='\0';
+	fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);
+	mySong.title[strlen(mySong.title)-1] = '\0';
 
-        return mySong;
-    }
-    char line[MAX_SIZE_LINE]; // buffer de lecture
+	fgets(line, MAX_SIZE_LINE, songFile);
+	mySong.tpm=atoi(line)*2;
 
-    fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);
-    mySong.title[strlen(mySong.title)-1] = '\0';
+	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
+	fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
 
-    fgets(line, MAX_SIZE_LINE, songFile);
-    mySong.tpm=atoi(line)*2;
+	int compt_ligne=0;
+	char *delim ="|\n";
+	char *token;
 
-    fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
-    fgets(line, MAX_SIZE_LINE, songFile); //saute la ligne
+	while ( ! feof( songFile ) ) {
 
-    int compt_ligne=0;
+		fgets(line, MAX_SIZE_LINE, songFile);
+		int compt_colonne = 0;
+		int compt_note = 0;
 
-    char *delim ="|\n";
-    char *token;
+		token = strtok(line, delim);
 
-    while ( ! feof( songFile ) ) {
+		while (token != NULL) {
 
-        fgets(line, MAX_SIZE_LINE, songFile);
-        int compt_colonne = 0;
-        int compt_note = 0;
+			if (token[0] == '^' || token[0] == 'x') {
+				mySong.tickTab[compt_ligne].note[compt_note] = compt_colonne;
+				compt_note++;
+			}
+			if (token[0] == '^') {
+				mySong.tickTab[compt_ligne].accent = 1;
+			}if(token[0] =='x'){
+				mySong.tickTab[compt_ligne].accent = 0;
+			}
 
-        token = strtok(line, delim);
-
-        while (token != NULL) {
-
-            if (token[0] == '^' || token[0] == 'x') {
-                mySong.tickTab[compt_ligne].note[compt_note] = compt_colonne;
-                compt_note++;
-            }
-            if (token[0] == '^') {
-                mySong.tickTab[compt_ligne].accent = 1;
-            }
-
-            token = strtok(NULL, delim);
-            compt_colonne++;
-        }
-        compt_ligne++;
-    }
-    mySong.nTicks=compt_ligne;
-
-    fclose(songFile);
-
-    return mySong;
+			token = strtok(NULL, delim);
+			compt_colonne++;
+		}
+		compt_ligne++;
+	}
+	mySong.nTicks=compt_ligne;
+	return mySong;
 
 
 }
 
-    fgets(line,MAX_SIZE_TITLE,txt);
-    fputs(line, ams);
 
 void createAMS(char* txtFileName, char* amsFileName){
     FILE * txt = NULL;

@@ -24,6 +24,12 @@ s_song readAMS(char* fileName){
         mySong.title[0]='\0';
         return mySong;
     }
+    for (int i=0;i<MAX_NUMBER_TICKS;i++){
+        for(int j=0;j<4;j++) {
+            mySong.tickTab[i].note[j] = 0;
+        }
+    }
+
     char line[MAX_SIZE_LINE]; // buffer de lecture
 
     fgets(mySong.title, MAX_SONGNAME_SIZE, songFile);

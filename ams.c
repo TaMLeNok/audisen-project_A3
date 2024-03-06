@@ -104,9 +104,14 @@ void createAMS(char* txtFileName, char* amsFileName){
     fputs(line,ams);
 
     fgets(line,MAX_SIZE_TITLE,txt);
-    fputs("\n",ams);
-    fputs("    01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 \n", ams);
-
+    fputs("\r\n",ams);
+    char numeros[MAX_SIZE_LINE];
+    sprintf(numeros,"    ");
+    for (int i=1;i<=60;i++){
+        sprintf(numeros+strlen(numeros), "%02d ",i);
+    }
+    sprintf(numeros+strlen(numeros),"\r\n");
+    fputs(numeros,ams);
     char tableau_ticks[MAX_NUMBER_TICKS][60];
     for (int i=0;i<MAX_NUMBER_TICKS;i++){
         for (int j=0;j<60;j++){
@@ -182,7 +187,7 @@ void createAMS(char* txtFileName, char* amsFileName){
         }
         if (i!=nb_ligne-1) {
             printf("\n");
-            sprintf(ligne + strlen(ligne), "\n");
+            sprintf(ligne + strlen(ligne), "\r\n");
         }
         fputs(ligne,ams);
 

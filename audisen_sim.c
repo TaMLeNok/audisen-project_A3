@@ -68,6 +68,7 @@ int main(){
 
     createAMS(txtFileName,amsFileName);
 
+    testCreateAMS();
 
 
 

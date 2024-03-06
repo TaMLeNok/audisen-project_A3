@@ -17,7 +17,6 @@ void create_frm(char * name_playlist, char * playlist_filename){
         printf("Error file not found !\n");
         exit(0);
     }
-
     s_song song;
     char frame_title[INIT_FRAME_MAX_SIZE];
     char frame_tick[TICK_FRAME_SIZE];
@@ -45,7 +44,7 @@ void create_frm(char * name_playlist, char * playlist_filename){
 int main(){
     printf("Demarrage du projet AUDISEN\n");
 
-    create_frm("Playlist.amp","Playlist.frm");
+    //create_frm("Playlist.amp","Playlist.frm");
 
     //s_song OE;
     //OE = readAMS("bohemian_rhapsody.ams");
@@ -63,17 +62,13 @@ int main(){
     printf("%s",frame2);
     */
     //testReadAMS();
-    char txtFileName[] = "bohemian_rhapsody.txt";
-    char amsFileName[] = "test.ams";
+    char txtFileName[] = "SlimShady.txt";
+    char amsFileName[] = "slim_shady.ams";
 
     createAMS(txtFileName,amsFileName);
 
-    testCreateAMS();
-
-
-
-
-
+    //testCreateAMS();
+    create_frm("oe.apm","oe.frm");
 
     return 0;
 }

@@ -52,19 +52,21 @@ int main(){
     /*
     closeAMP(playlist);*
     */
-/*
-    s_song OE;
-    OE = readAMS("knockin_on_heaven_s_door.ams");
+
+   /* s_song OE;
+    OE = readAMS("bohemian_rhapsody.ams");
     char frame[INIT_FRAME_MAX_SIZE];
     char frame2[TICK_FRAME_SIZE];
     createInitFrame(OE,frame);
     printf("%s",frame);
     createTickFrame(OE.tickTab[0],frame2);
     printf("%s",frame2);
-*/
+    */
     //testReadAMS();
     char txtFileName[] = "bohemian_rhapsody.txt";
     char amsFileName[] = "test.ams";
+
+    createAMS(txtFileName,amsFileName);
 
 
 

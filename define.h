@@ -46,6 +46,7 @@ void repr_song(s_song song);
 void string_tolower(char * song_filename);
 void string_replace(char * song_filename);
 int calculate_checksum(const char * content);
+int get_note(char* token);
 #endif
 
 

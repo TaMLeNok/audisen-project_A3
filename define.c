@@ -54,4 +54,12 @@ int calculate_checksum(const char * content){
     return checksum;
 }
 
+int get_note(char* token){
+    int compt=0;
+
+    return compt;
+
+
+}
+
 

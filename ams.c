@@ -174,8 +174,10 @@ void createAMS(char* txtFileName, char* amsFileName){
             printf("%c |",tableau_ticks[i][j]);
             sprintf(ligne + strlen(ligne),"%c |",tableau_ticks[i][j]);
         }
-        printf("\n");
-        sprintf(ligne + strlen(ligne),"\n" );
+        if (i!=nb_ligne-1) {
+            printf("\n");
+            sprintf(ligne + strlen(ligne), "\n");
+        }
         fputs(ligne,ams);
 
     }

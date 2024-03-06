@@ -7,23 +7,28 @@ void string_tolower(char * song_filename){
     }
 }
 
-void string_replace(char * song_filename){
+void string_replace(char *song_filename) {
+    char new_song_filename[MAX_SONGNAME_SIZE];
+    for (int i = 0; i < MAX_SIZE_TITLE; i++) {
+        new_song_filename[i] = '\0';
+    }
 
-    char new_song_filename[MAX_SIZE_TITLE];
-    int decalage=0;
-    for(int i=0;i< strlen(song_filename); i++) {
-        if (isalnum((int) song_filename[i])) {
-            new_song_filename[i - decalage] = song_filename[i];
-        } else {
-            if (new_song_filename[i - 1 - decalage] != '_') {
-                new_song_filename[i - decalage] = '_';
-            }else{
-                decalage++;
+    int decalage = 0;
+    for(int i = 0; i < strlen(song_filename); i++) {
+        if (song_filename[i] != '\n' && song_filename[i] != '\r') {
+            if (isalpha(song_filename[i])) {
+                new_song_filename[i - decalage] = song_filename[i]; // Convertir en minuscule
+            } else {
+                if (new_song_filename[i - 1 - decalage] != '_') {
+                    new_song_filename[i - decalage] = '_';
+                } else {
+                    decalage++;
+                }
             }
-
         }
     }
-    strcpy(song_filename,new_song_filename);
+    strcpy(song_filename, new_song_filename);
+    strcat(song_filename, ".ams");
 }
 
 void repr_song(s_song song){

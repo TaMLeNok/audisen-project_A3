@@ -77,5 +77,4 @@ s_song readAMS(char* fileName){
 void createAMS(char* txtFileName, char* amsFileName){
 
 
-
 }

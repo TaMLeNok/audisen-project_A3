@@ -124,7 +124,7 @@ void testReadAMP(){
     	coeff[i]=1;
     }
     int testnb = 0; // numéro du test en cours;
-    char filename[100]="ma_playlist.amp";
+    char filename[100]="Playlist.amp";
     char wrongfile[100]="dtfhesjs.ams";
 
     // TEST 1 : on verifie que le pointeur est NULL si le fichier amp n'existe pas
@@ -153,7 +153,7 @@ void testReadAMP(){
 
         readAMP(pf, songfilename);
         nbtest ++;
-        if (!strcmp("bohemian_rhapsody", songfilename) && nbtest == 2){
+        if (!strcmp("bohemian_rhapsody.ams", songfilename) && nbtest == 2){
             mark[nbtest]=1;
             #ifdef DEBUG
             printf("test %d AMP ok\n", nbtest);

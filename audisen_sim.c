@@ -10,11 +10,16 @@
 
 int main(){
     printf("Demarrage du projet AUDISEN\n");
-/*
+    /*
     FILE * playlist = NULL;
-    char title[MAX_SONGNAME_SIZE];
-    playlist = initAMP("Playlist.amp");
+    char * title;
+    playlist = initAMP("ma_playlist.amp");
     readAMP(playlist,title);
+    closeAMP(playlist);
+*/
+    //s_song OE;
+    //OE = readAMS("bohemian_rhapsody.ams");
+    /*
     closeAMP(playlist);*
     */
 
@@ -25,14 +30,15 @@ int main(){
     createInitFrame(OE,frame);
     printf("%s",frame);
     createTickFrame(OE.tickTab[0],frame2);
-    printf("%s",frame2);*/
+    printf("%s",frame2);
+    */
+    //testReadAMS();
+    char txtFileName[] = "bohemian_rhapsody.txt";
+    char amsFileName[] = "test.ams";
 
-    /* Autotest*/
 
-    testReadAMP();
     testReadAMS();
-    testCreateAMS();
-    testFrame();
+
 
 
 

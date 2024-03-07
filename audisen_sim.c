@@ -61,14 +61,14 @@ int main(){
     createTickFrame(OE.tickTab[0],frame2);
     printf("%s",frame2);
     */
-    //testReadAMS();
-    char txtFileName[] = "SlimShady.txt";
-    char amsFileName[] = "slim_shady.ams";
+    testReadAMS();
+    char txtFileName[] = "bohemian_rhapsody.txt";
+    char amsFileName[] = "bohemian.ams";
 
-    createAMS(txtFileName,amsFileName);
+    //createAMS(txtFileName,amsFileName);
 
     //testCreateAMS();
-    create_frm("oe.apm","oe.frm");
+    //create_frm("oe.apm","oe.frm");
 
     return 0;
 }

@@ -17,6 +17,7 @@ s_song readAMS(char* fileName){
         mySong.nTicks=0;
         mySong.tpm=0;
         for (int i=0;i<MAX_NUMBER_TICKS;i++){
+            mySong.tickTab[i].accent=0;
             for(int j=0;j<4;j++) {
                 mySong.tickTab[i].note[j] = 0;
             }
@@ -25,6 +26,7 @@ s_song readAMS(char* fileName){
         return mySong;
     }
     for (int i=0;i<MAX_NUMBER_TICKS;i++){
+        mySong.tickTab[i].accent=0;
         for(int j=0;j<4;j++) {
             mySong.tickTab[i].note[j] = 0;
         }

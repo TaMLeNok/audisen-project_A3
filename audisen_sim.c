@@ -52,23 +52,25 @@ int main(){
     closeAMP(playlist);*
     */
 
-   /* s_song OE;
-    OE = readAMS("bohemian_rhapsody.ams");
-    char frame[INIT_FRAME_MAX_SIZE];
-    char frame2[TICK_FRAME_SIZE];
-    createInitFrame(OE,frame);
-    printf("%s",frame);
-    createTickFrame(OE.tickTab[0],frame2);
-    printf("%s",frame2);
-    */
-    testReadAMS();
-    char txtFileName[] = "bohemian_rhapsody.txt";
-    char amsFileName[] = "bohemian.ams";
+    /* s_song OE;
+     OE = readAMS("bohemian_rhapsody.ams");
+     char frame[INIT_FRAME_MAX_SIZE];
+     char frame2[TICK_FRAME_SIZE];
+     createInitFrame(OE,frame);
+     printf("%s",frame);
+     createTickFrame(OE.tickTab[0],frame2);
+     printf("%s",frame2);
+     */
+    //testReadAMS();
+    char txtFileName[] = "blue.txt";
+    char amsFileName[] = "blue.ams";
 
-    //createAMS(txtFileName,amsFileName);
+    createAMS(txtFileName,amsFileName);
 
     //testCreateAMS();
-    //create_frm("oe.apm","oe.frm");
+    //testReadAMP();
+    //testReadAMS();
+    create_frm("oe.amp","oe.frm");
 
     return 0;
 }

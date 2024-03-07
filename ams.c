@@ -74,10 +74,7 @@ s_song readAMS(char* fileName){
     }
     mySong.nTicks=compt_ligne;
     return mySong;
-
-
 }
-
 
 
 void createAMS(char* txtFileName, char* amsFileName){
@@ -94,7 +91,7 @@ void createAMS(char* txtFileName, char* amsFileName){
         printf("Error file not found !\n");
         exit(0);
     }
-
+    //fonction
     char line[MAX_SIZE_LINE];
 
     fgets(line,MAX_SIZE_TITLE,txt);
@@ -107,6 +104,7 @@ void createAMS(char* txtFileName, char* amsFileName){
 
     fgets(line,MAX_SIZE_TITLE,txt);
     fputs("\r\n",ams);
+
     char numeros[MAX_SIZE_LINE];
     sprintf(numeros,"    ");
     for (int i=1;i<=60;i++){
@@ -114,71 +112,71 @@ void createAMS(char* txtFileName, char* amsFileName){
     }
     sprintf(numeros+strlen(numeros),"\r\n");
     fputs(numeros,ams);
+    //fin fonction
     char tableau_ticks[MAX_NUMBER_TICKS][60];
     for (int i=0;i<MAX_NUMBER_TICKS;i++){
         for (int j=0;j<60;j++){
             tableau_ticks[i][j]=' ';
         }
     }
-    int nb_ligne=0;
 
+    int nb_ligne=0;
+    //cree tableau(nb_ligne, tableau_ticks, txt)
     char *delim =",";
     char *token;
     int valeur[]={10,12,1,3,5,6,8}; //tableau des valeurs des notes
     while ( ! feof( txt ) ) {
         fgets(line, MAX_SIZE_LINE, txt);
+        if (line[0] != '\n' && line[0] != '\r' && line[0] != '\0') {
 
-        token = strtok(line, delim);
+            token = strtok(line, delim);
 
-        while (token != NULL) {
-            int compt = 0;
-            int decalage = 0;
+            while (token != NULL) {
+                int compt;
+                int decalage = 0;
 
-            if (token[0] == ' ') {
-                decalage += 1;
-            }
-            compt = valeur[token[0 + decalage] - 'A'] + ((token[1+decalage]-48)-1)*12;
-            if (token[2 + decalage] == '#') {
-                compt+=1;
-                decalage+=1;
-            }
-            printf("%d | ", compt);
-
-            int nb_tick=0;
-            switch (token[3+decalage]) {
-                case 'R':
-                    nb_tick=8;
-                    break;
-                case 'B':
-                    nb_tick=4;
-                    break;
-                case 'N':
-                    nb_tick=2;
-                    break;
-                case 'C':
-                    nb_tick=1;
-                    break;
-            }
-
-            for (int i=0;i<nb_tick;i++){
-                if (i==0){
-                    tableau_ticks[nb_ligne + i][compt - 1] = '^';
+                if (token[0] == ' ') {
+                    decalage += 1;
                 }
-                else {
-                    tableau_ticks[nb_ligne + i][compt - 1] = 'x';
+                compt = valeur[token[0 + decalage] - 'A'] + ((token[1 + decalage] - 48) - 1) * 12;
+                if (token[2 + decalage] == '#') {
+                    compt += 1;
+                    decalage += 1;
                 }
+                printf("%d | ", compt);
+
+                int nb_tick = 0;
+                switch (token[3 + decalage]) {
+                    case 'R':
+                        nb_tick = 8;
+                        break;
+                    case 'B':
+                        nb_tick = 4;
+                        break;
+                    case 'N':
+                        nb_tick = 2;
+                        break;
+                    case 'C':
+                        nb_tick = 1;
+                        break;
+                }
+
+                for (int i = 0; i < nb_tick; i++) {
+                    if (i == 0) {
+                        tableau_ticks[nb_ligne + i][compt - 1] = '^';
+                    } else {
+                        tableau_ticks[nb_ligne + i][compt - 1] = 'x';
+                    }
+                }
+                token = strtok(NULL, delim);
             }
-
-
-            /*for i in ticktab[i]
-             * if i == la ou j'en suis, j'affiche x (ou ^ xdddddd)
-             */
-            
-            token = strtok(NULL, delim);
         }
         printf("\n");
         nb_ligne++;
     }
+    //fin cree tableau
+
+    //ecrit tableau(nb_ligne, tableau_ticks, ams)
     for(int i=0;i<nb_ligne;i++){
         char ligne[MAX_SIZE_LINE];
         sprintf(ligne,"%03d|",i+1);
@@ -194,6 +192,7 @@ void createAMS(char* txtFileName, char* amsFileName){
         fputs(ligne,ams);
 
     }
+    //fin ecrit tableau
 
     fclose(txt);
     fclose(ams);

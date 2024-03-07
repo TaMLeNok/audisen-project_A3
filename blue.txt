@@ -1,0 +1,52 @@
+Blue
+128
+
+A3# C
+D3 C
+G3 C
+A3# C
+C4 C
+F3 C
+A3 C
+A3# N
+
+G3 C
+A3# C
+D4 C
+D4# C
+G3 C
+D4 C
+C4 C
+A3# C
+D3 C
+G3 C0
+A3# C
+C4 C
+F3 C
+A3 C
+A3# N
+
+G3 C
+A3# C
+D4 C
+D4# C
+G3 C
+D4 C
+C4 C
+A3# C
+D3 C
+G3 C
+A3# C
+C4 C
+F3 C
+A3 C
+A3# N
+
+G3 C
+A3# C
+D4 C
+D4# C
+G3 C
+D4 C
+C4 C
+A3# C

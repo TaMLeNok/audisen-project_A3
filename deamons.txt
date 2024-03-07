@@ -1,0 +1,109 @@
+Deamons
+95
+
+D4# C
+D4# C
+D4# B, A4# B
+
+
+
+G4 N
+
+F4 C
+D4# C
+D4# C
+F4 B, A4# B
+
+
+
+G4 N
+
+F4 C
+D4# C
+D4# C
+G4 B, C5 B
+
+
+
+G4 N
+
+F4 C
+D4# C
+D4# C
+D4# N, G4# N
+
+G4# N
+
+G4# N
+
+D4# C
+D4# C
+D4# B, A4# B
+
+
+
+G4 N
+
+F4 C
+D4# C
+D4# C
+F4 B, A4# B
+
+
+
+G4 N
+
+F4 C
+D4# C
+D4# C
+G4 B, C5 B
+
+
+
+G4 N
+
+F4 C
+D4# C
+D4# C
+D4# N, G4# N
+
+D4# N, G4# N
+
+D4# B, G4# B
+
+
+
+
+D4# C, A4# C
+D4# C, A4# C
+D4# C, A4# C
+D4# C, A4# C
+D4# N, G4 N
+
+F4 N, A4# N
+
+F4 C, A4# C
+F4 C, A4# C
+F4 C, A4# C
+A4# N, D5# N
+
+F4 N, D5 N
+
+G4 N, C5 N
+
+C4 C, G4 C
+C4 C, G4 C
+C4 C, G4 C
+C4 N, G4 N
+
+C4 N, G4 N
+
+D4# N, G4# N
+
+D4# C, G4# C
+D4# C, G4# C
+D4# C, G4# C
+D4# C, G4# C
+D4# N, G4 N
+
+D4# N, G4 N

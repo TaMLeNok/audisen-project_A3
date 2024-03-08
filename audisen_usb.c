@@ -1,5 +1,5 @@
 /**
- * @authors Nom Prenom Nom Prenom Groupe Ville
+ * @authors Lelievre Tom Bellenger Maxime GroupePJ2 Caen
  */
 #define _WIN32
 #include <stdio.h>
@@ -20,7 +20,6 @@ void sent_frame(char * name_playlist,FT_HANDLE ftHandle){
     while (!feof(playlist)) {
         readAMP(playlist, title);
         song = readAMS(title);
-        repr_song(song);
         if (strlen(song.title) != 0) {
             song.title[strlen(song.title)]='\0';
             createInitFrame(song, frame_title);

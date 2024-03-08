@@ -1,5 +1,5 @@
 /**
- * @authors Nom Prenom Nom Prenom Groupe Ville
+ * @authors Lelievre Tom Bellenger Maxime GroupePJ2 Caen
  */
 
 #ifndef AUDISEN_USB_H

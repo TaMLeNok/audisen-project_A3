@@ -1,5 +1,5 @@
 /**
- * @authors Nom Prenom Nom Prenom Groupe Ville
+ * @authors Lelievre Tom Bellenger Maxime GroupePJ2 Caen
  */
 
 #ifndef AUDISEN2024_FRAME_H
@@ -20,6 +20,7 @@
 #define CR 13
 #define LF 10
 
+int calculate_checksum(const char * content);
 void createInitFrame(s_song mySong, char* frame);
 void createTickFrame(s_tick myTick, char* frame);
 

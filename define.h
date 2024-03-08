@@ -1,5 +1,5 @@
 /**
- * @authors Nom Prenom Nom Prenom Groupe Ville
+ * @authors Lelievre Tom Bellenger Maxime GroupePJ2 Caen
  */
 
 #ifndef INCLUDE_H
@@ -42,11 +42,6 @@ struct song{
 	struct tick tickTab[MAX_NUMBER_TICKS];// Tableau de ticks
 }s_song;
 
-void repr_song(s_song song);
-void string_tolower(char * song_filename);
-void string_replace(char * song_filename);
-int calculate_checksum(const char * content);
-int get_note(char* token);
 #endif
 
 
